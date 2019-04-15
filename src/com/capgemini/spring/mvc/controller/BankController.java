@@ -2,6 +2,7 @@ package com.capgemini.spring.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,7 +22,13 @@ public class BankController {
 		@RequestMapping("/")
 		public String inputPage() {
 			
-			return "update";
+			return "index";
+		}
+		
+		@RequestMapping("/getaccount")
+		public String getAccountPage() {
+			
+			return "input";
 		}
 		
 		@RequestMapping("/new")
@@ -34,6 +41,13 @@ public class BankController {
 			
 		}
 		
+		@RequestMapping("/deleteaccount")
+		public String getDeletePage() {
+			
+			return "delete";
+		}
+		
+		
 		@RequestMapping("/remove")
 		public String deleteAccount(@RequestParam("accountId") long accountId) throws AccountNotFoundException {
 			
@@ -41,6 +55,12 @@ public class BankController {
 			
 			return "success";
 			
+		}
+		
+		@RequestMapping("/depositmoney")
+		public String getDepositPage() {
+			
+			return "deposit";
 		}
 		
 		@RequestMapping("/addmoney")
@@ -52,6 +72,14 @@ public class BankController {
 			
 		}
 		
+		@RequestMapping("/withdrawform")
+		public String getWithdrawPage() {
+			
+			return "withdraw";
+		}
+		
+		
+		
 		@RequestMapping("/deduct")
 		public String withdraw(@RequestParam("accountId") long accountId, @RequestParam("amount") double amount ) throws AccountNotFoundException, LowBalanceException {
 			
@@ -61,11 +89,18 @@ public class BankController {
 			
 		}
 		
+		@RequestMapping("/getbalanceinput")
+		public String getBalancePage() {
+			
+			return "checkbalance";
+		}
+		
 		@RequestMapping("/check")
-		public String checkBalance(@RequestParam("accountId") long accountId) throws AccountNotFoundException{
+		public String checkBalance(@RequestParam("accountId") long accountId,Model model) throws AccountNotFoundException{
 			
 			double balance = service.checkBalance(accountId);
 			System.out.println(balance);
+			model.addAttribute("message", "Your Balance is:" + balance);
 			return "success";
 			
 		}
@@ -78,12 +113,24 @@ public class BankController {
 			
 		}
 		
+		@RequestMapping("/fundtransferinput")
+		public String fundTransferPage() {
+			
+			return "transfer";
+		}
+		
 		@RequestMapping("/fundtransfer")
 		public String fundTransfer(@RequestParam("senderAccountId") long fromAccount, @RequestParam("RecieverAccountId") long toAccount, @RequestParam("amount") double amount) throws AccountNotFoundException, LowBalanceException{
 			
 			service.fundTransfer(fromAccount, toAccount, amount);
 			return "success";
 			
+		}
+		
+		@RequestMapping("/updatedetailsinput")
+		public String updateDetailsPage() {
+			
+			return "update";
 		}
 		
 		@RequestMapping("/updatedetails")

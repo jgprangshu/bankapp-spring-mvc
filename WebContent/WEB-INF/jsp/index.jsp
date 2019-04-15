@@ -56,15 +56,15 @@ height: 100%;
 <body background="new.jpg">
     <ul>
         <li style="float:center"><a href="index.html" class="active">Home</a> </li>
-        <li style="float:center"><a href="input" >New Account</a> </li>
-        <li style="float:center"><a href="withdraw.html" >Withdraw</a> </li>
-        <li style="float:center"><a href="deposit.html" >Deposit</a> </li>
-        <li style="float:center"><a href="fundtransfer.html" >Fund Transfer</a> </li>
-        <li style="float:center"><a href="checkbalance.html" >Check Balance</a> </li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/getaccount" >New Account</a> </li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/withdrawform" >Withdraw</a> </li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/depositmoney" >Deposit</a> </li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/fundtransferinput" >Fund Transfer</a> </li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/getbalanceinput" >Check Balance</a> </li>
         <li style="float:center"><a href="searchAllBankAccounts.html">Search Account</a> </li>
         <li style="float:center"><a href="getAllBankAccounts.do">Account Details</a></li>
-        <li style="float:center"><a href="deleteaccount.html">Delete Details</a></li>
-        <li style="float:center"><a href="updatedetails.html">Update Details</a></li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/deleteaccount">Delete Details</a></li>
+        <li style="float:center"><a href="/bankapp-spring-mvc/app/mumbaibank/updatedetailsinput">Update Details</a></li>
         
     </ul>
      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>

@@ -105,6 +105,7 @@ public class BankAccountServiceImpl implements BankAccountService{
 		}
 	}
 
+	@Transactional(rollbackFor=AccountNotFoundException.class)
 	private double withdrawForFundTransfer(long accountId, double amount)
 			throws AccountNotFoundException, LowBalanceException {
 		double balance = bankAccount.getBalance(accountId);
@@ -121,7 +122,7 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 	@Override
 	public boolean updateBankAccountDetails(long accountId, String accountHolderName, String accountType) {
-		boolean result = bankAccount.updateBankAccountDetails(accountI  d, accountHolderName, accountType);
+		boolean result = bankAccount.updateBankAccountDetails(accountId, accountHolderName, accountType);
 		
 		return result;
 }
